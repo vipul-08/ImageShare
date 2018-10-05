@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.imagetext_share_demo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@drawable/share"
+        android:label="@string/share_activity"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.imagetext_share_demo.ShareActivity"
+            android:icon="@drawable/share"
+            android:label="@string/share_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Shared Activity -->
+        <activity
+            android:name="com.imagetext_share_demo.SharedActivity"
+            android:icon="@drawable/share_this"
+            android:label="@string/shared_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" /> <!-- Send action required to display activity in share list -->
+
+                <category android:name="android.intent.category.DEFAULT" /> <!-- Make activity default to launch -->
+
+
+                <!-- Mime type i.e. what can be shared with this activity only image and text -->
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/*" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
